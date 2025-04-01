@@ -11,12 +11,12 @@ import { AddEntryService } from '../services/add-entry.service';
 @Component({
   selector: 'app-add-mammal',
   imports: [ReactiveFormsModule],
-  templateUrl: './add-mammal.component.html',
+  templateUrl: './add-entry.component.html',
 })
 export class AddMammalComponent {
-  speciesForm = new FormGroup({
-    species: new FormControl(''),
-    funFact: new FormControl(''),
+  entryForm = new FormGroup({
+    topic: new FormControl(''),
+    description: new FormControl(''),
     wiki: new FormControl(''),
   });
   isSubmitted: boolean = false;
@@ -27,9 +27,9 @@ export class AddMammalComponent {
   ) {}
 
   ngOnInit() {
-    this.speciesForm = this.fb.group({
-      species: ['', Validators.required],
-      funFact: ['', Validators.required],
+    this.entryForm = this.fb.group({
+      topic: ['', Validators.required],
+      description: ['', Validators.required],
       wiki: ['', Validators.required],
     });
   }
@@ -37,9 +37,9 @@ export class AddMammalComponent {
   onSubmit() {
     this.isSubmitted = true;
     this.addEntryService.addEntry(
-      '' + this.speciesForm.get('species')?.value,
-      '' + this.speciesForm.get('funFact')?.value,
-      '' + this.speciesForm.get('wiki')?.value
+      '' + this.entryForm.get('topic')?.value,
+      '' + this.entryForm.get('description')?.value,
+      '' + this.entryForm.get('wiki')?.value
     );
   }
 

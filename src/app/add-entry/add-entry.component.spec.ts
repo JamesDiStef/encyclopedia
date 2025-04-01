@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddMammalComponent } from './add-mammal.component';
+import { AddMammalComponent } from './add-entry.component';
 
 describe('AddMammalComponent', () => {
   let component: AddMammalComponent;
@@ -8,10 +8,9 @@ describe('AddMammalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddMammalComponent]
-    })
-    .compileComponents();
-    
+      imports: [AddMammalComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(AddMammalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

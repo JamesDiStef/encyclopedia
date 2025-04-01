@@ -4,38 +4,38 @@
       class="card w-full sm:w-[100vw] bg-base-100 max-w-sm shrink-0 shadow-2xl"
     >
       @if(!isSubmitted){
-      <form [formGroup]="speciesForm" (ngSubmit)="onSubmit()" class="card-body">
+      <form [formGroup]="entryForm" (ngSubmit)="onSubmit()" class="card-body">
         <div class="form-control">
           <label class="label">
-            <span class="label-text">Species</span>
+            <span class="label-text">Topic</span>
           </label>
           <input
-            formControlName="species"
+            formControlName="topic"
             type="text"
-            placeholder="Add a new species"
+            placeholder="Add a new topic"
             class="input input-bordered"
             required
           />
-          @if(speciesForm.get('species')?.touched &&
-          speciesForm.get('species')?.invalid){
+          @if(entryForm.get('topic')?.touched &&
+          entryForm.get('topic')?.invalid){
 
-          <div class="text-red-500">Please enter a valid species</div>
+          <div class="text-red-500">Please enter a valid topic</div>
           }
         </div>
 
         <div class="form-control">
           <label class="label">
-            <span class="label-text">Fun Fact</span>
+            <span class="label-text">Description</span>
           </label>
           <input
-            formControlName="funFact"
+            formControlName="description"
             type="text"
             placeholder="It better be a mammal!"
             class="input input-bordered"
             required
           />
-          @if(speciesForm.get('description')?.touched &&
-          speciesForm.get('description')?.invalid){
+          @if(entryForm.get('description')?.touched &&
+          entryForm.get('description')?.invalid){
           <div class="text-red-500">Fun fact is required</div>
 
           }
@@ -52,8 +52,7 @@
             class="input input-bordered"
             required
           />
-          @if(speciesForm.get('wiki')?.touched &&
-          speciesForm.get('wiki')?.invalid){
+          @if(entryForm.get('wiki')?.touched && entryForm.get('wiki')?.invalid){
           <div class="text-red-500">Wikipedia link is required</div>
 
           }
@@ -63,7 +62,7 @@
           <button
             type="submit"
             class="btn btn-primary"
-            [disabled]="speciesForm.invalid"
+            [disabled]="entryForm.invalid"
           >
             Submit
           </button>
