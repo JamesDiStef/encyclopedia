@@ -1,0 +1,57 @@
+<label
+  class="input input-bordered relative flex items-center mx-auto my-12 sm:my-20 gap-2 w-1/2"
+>
+  <form class="grow" [formGroup]="applyForm">
+    <input
+      id="species"
+      type="text"
+      class="grow"
+      placeholder="Search"
+      formControlName="species"
+      (keydown.enter)="go()"
+    />
+  </form>
+</label>
+
+@if(!isSelected){
+<div
+  class="card place-self-center mt-12 sm:mt-20 w-full sm:w-1/2 bg-gradient-to-r from-sky-200 to-sky-300 rounded-xl shadow-lg"
+>
+  <div class="card-body text-center">
+    <h2 class="text-2xl font-bold text-gray-800 mb-3">Mammals!</h2>
+    <p class="text-lg text-gray-600">
+      Search any North American mammal to learn a fun fact.
+    </p>
+    <p class="text-center text-gray-700 m-4">
+      We're pretty early in development - maybe you can help us out. If you
+      don't get results for a mammal, feel free to add it yourself!
+    </p>
+  </div>
+</div>
+} @if(animalNotFound) {
+<div class="place-self-center">
+  <div class="card bg-base-100 m-20 w-4/5 h-2/5 shadow-xl">
+    <figure>
+      <img
+        src="../../assets/mammal-not-found.jpg"
+        alt="Couldn't find the mammal"
+      />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title justify-center">
+        Mammal not found - would you like to add it?
+      </h2>
+      <div class="card-actions justify-center">
+        <a href="/add" target="_blank" class="btn btn-primary"
+          >Add new mammal</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+} @if(isSelected && !animalNotFound) {
+<div class="place-self-center">
+  <selected-animal [animal]="result" />
+</div>
+}

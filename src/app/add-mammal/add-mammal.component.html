@@ -1,0 +1,81 @@
+<div class="hero mt-20">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <div
+      class="card w-full sm:w-[100vw] bg-base-100 max-w-sm shrink-0 shadow-2xl"
+    >
+      @if(!isSubmitted){
+      <form [formGroup]="speciesForm" (ngSubmit)="onSubmit()" class="card-body">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Species</span>
+          </label>
+          <input
+            formControlName="species"
+            type="text"
+            placeholder="Add a new species"
+            class="input input-bordered"
+            required
+          />
+          @if(speciesForm.get('species')?.touched &&
+          speciesForm.get('species')?.invalid){
+
+          <div class="text-red-500">Please enter a valid species</div>
+          }
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Fun Fact</span>
+          </label>
+          <input
+            formControlName="funFact"
+            type="text"
+            placeholder="It better be a mammal!"
+            class="input input-bordered"
+            required
+          />
+          @if(speciesForm.get('description')?.touched &&
+          speciesForm.get('description')?.invalid){
+          <div class="text-red-500">Fun fact is required</div>
+
+          }
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Wiki Link</span>
+          </label>
+          <input
+            formControlName="wiki"
+            type="text"
+            placeholder="Paste the Wikipedia link here"
+            class="input input-bordered"
+            required
+          />
+          @if(speciesForm.get('wiki')?.touched &&
+          speciesForm.get('wiki')?.invalid){
+          <div class="text-red-500">Wikipedia link is required</div>
+
+          }
+        </div>
+
+        <div class="form-control mt-6">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="speciesForm.invalid"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+      } @if(isSubmitted){
+      <button class="btn btn-primary my-6" (click)="addAnother()">
+        Submit another
+      </button>
+      <a class="btn btn-primary my-6" href="/">Back to Home</a>
+
+      }
+    </div>
+  </div>
+</div>
