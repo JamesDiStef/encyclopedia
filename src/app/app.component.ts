@@ -14,7 +14,6 @@ export class AppComponent {
   faBars = faBars;
 
   toggleMenu() {
-    console.log('yo yo');
     this.mobileNavOpen = !this.mobileNavOpen;
   }
 }

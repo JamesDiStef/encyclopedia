@@ -6,14 +6,14 @@ import { stringify } from 'querystring';
 @Injectable({
   providedIn: 'root',
 })
-export class AddMammalService {
+export class AddEntryService {
   // private apiUrl = 'http://localhost:8080/api/v1/mammals/';
   private apiUrl =
     'https://animals-service-96f362179112.herokuapp.com/api/v1/mammals/';
 
   constructor(private http: HttpClient) {}
 
-  async addMammal(species: string, description: string, wiki: string) {
+  async addEntry(species: string, description: string, wiki: string) {
     let data = await fetch(this.apiUrl + 'mammal', {
       method: 'POST',
       headers: {
@@ -27,7 +27,7 @@ export class AddMammalService {
     });
   }
 
-  async updateMammalDescription(species: string, description: string) {
+  async updateEntryDescription(species: string, description: string) {
     console.log('got to the service');
     let data = await fetch(this.apiUrl + species, {
       method: 'PATCH',

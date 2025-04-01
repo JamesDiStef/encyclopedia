@@ -3,11 +3,11 @@
 >
   <form class="grow" [formGroup]="applyForm">
     <input
-      id="species"
+      id="topic"
       type="text"
       class="grow"
       placeholder="Search"
-      formControlName="species"
+      formControlName="topic"
       (keydown.enter)="go()"
     />
   </form>
@@ -18,17 +18,17 @@
   class="card place-self-center mt-12 sm:mt-20 w-full sm:w-1/2 bg-gradient-to-r from-sky-200 to-sky-300 rounded-xl shadow-lg"
 >
   <div class="card-body text-center">
-    <h2 class="text-2xl font-bold text-gray-800 mb-3">Mammals!</h2>
+    <h2 class="text-2xl font-bold text-gray-800 mb-3">Welcome!</h2>
     <p class="text-lg text-gray-600">
-      Search any North American mammal to learn a fun fact.
+      Search the encyclopedia to learn something new.
     </p>
     <p class="text-center text-gray-700 m-4">
       We're pretty early in development - maybe you can help us out. If you
-      don't get results for a mammal, feel free to add it yourself!
+      don't get results for a search, feel free to add a new entry yourself!
     </p>
   </div>
 </div>
-} @if(animalNotFound) {
+} @if(entryNotFound) {
 <div class="place-self-center">
   <div class="card bg-base-100 m-20 w-4/5 h-2/5 shadow-xl">
     <figure>
@@ -39,18 +39,16 @@
     </figure>
     <div class="card-body">
       <h2 class="card-title justify-center">
-        Mammal not found - would you like to add it?
+        Entry not found - would you like to add it?
       </h2>
       <div class="card-actions justify-center">
-        <a href="/add" target="_blank" class="btn btn-primary"
-          >Add new mammal</a
-        >
+        <a href="/add" target="_blank" class="btn btn-primary">Add new entry</a>
       </div>
     </div>
   </div>
 </div>
 
-} @if(isSelected && !animalNotFound) {
+} @if(isSelected && !entryNotFound) {
 <div class="place-self-center">
   <selected-animal [animal]="result" />
 </div>

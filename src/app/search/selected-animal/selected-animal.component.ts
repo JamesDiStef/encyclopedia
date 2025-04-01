@@ -2,8 +2,8 @@ import { Component, inject, Input } from '@angular/core';
 import { Animal, SearchService } from '../../services/search.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { AddMammalService } from '../../services/add-mammal.service';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { AddEntryService } from '../../services/add-entry.service';
 
 @Component({
   selector: 'selected-animal',
@@ -15,7 +15,7 @@ export class SelectedAnimalComponent {
   @Input() animal!: Animal | undefined;
   isEditing = false;
 
-  addMammalService: AddMammalService = inject(AddMammalService);
+  addMammalService: AddEntryService = inject(AddEntryService);
   searchService: SearchService = inject(SearchService);
 
   updateAnimalForm = new FormGroup({
@@ -31,7 +31,7 @@ export class SelectedAnimalComponent {
 
   async updateDescription() {
     console.log(this.updateAnimalForm.get('newDescription')?.value);
-    await this.addMammalService.updateMammalDescription(
+    await this.addMammalService.updateEntryDescription(
       '' + this.animal?.species,
       '' + this.updateAnimalForm.get('newDescription')?.value
     );

@@ -13,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class SearchComponent {
   isSelected = false;
   applyForm = new FormGroup({
-    species: new FormControl(''),
+    topic: new FormControl(''),
   });
 
   query: string = 'abb';
@@ -22,18 +22,18 @@ export class SearchComponent {
   url = 'http://localhost:3000/animals';
 
   searchService: SearchService = inject(SearchService);
-  animalNotFound: boolean = false;
+  entryNotFound: boolean = false;
 
   constructor() {}
 
   async go() {
-    let animal = await this.searchService.getAnimalBySpecies(
-      '' + this.applyForm.get('species')?.value
+    let entry = await this.searchService.getEntryByTopic(
+      '' + this.applyForm.get('topic')?.value
     );
-    if (animal?.species) {
-      this.result = animal;
-      this.animalNotFound = false;
-    } else this.animalNotFound = true;
+    if (entry?.species) {
+      this.result = entry;
+      this.entryNotFound = false;
+    } else this.entryNotFound = true;
     this.isSelected = true;
   }
 }

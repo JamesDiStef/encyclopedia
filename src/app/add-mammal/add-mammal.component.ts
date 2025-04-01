@@ -6,12 +6,12 @@ import {
   FormControl,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { AddMammalService } from '../services/add-mammal.service';
+import { AddEntryService } from '../services/add-entry.service';
 
 @Component({
-    selector: 'app-add-mammal',
-    imports: [ReactiveFormsModule],
-    templateUrl: './add-mammal.component.html'
+  selector: 'app-add-mammal',
+  imports: [ReactiveFormsModule],
+  templateUrl: './add-mammal.component.html',
 })
 export class AddMammalComponent {
   speciesForm = new FormGroup({
@@ -23,7 +23,7 @@ export class AddMammalComponent {
 
   constructor(
     private fb: FormBuilder,
-    private addMammalService: AddMammalService
+    private addEntryService: AddEntryService
   ) {}
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class AddMammalComponent {
 
   onSubmit() {
     this.isSubmitted = true;
-    this.addMammalService.addMammal(
+    this.addEntryService.addEntry(
       '' + this.speciesForm.get('species')?.value,
       '' + this.speciesForm.get('funFact')?.value,
       '' + this.speciesForm.get('wiki')?.value

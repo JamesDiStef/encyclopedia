@@ -18,12 +18,13 @@ export class SearchService {
 
   constructor(private http: HttpClient) {}
 
-  async getAllAnimals(): Promise<Animal> {
+  async getAllEntries(): Promise<Animal> {
     let data = await fetch(this.apiUrl);
     return (await data.json()) ?? [];
   }
 
-  async getAnimalBySpecies(species: string): Promise<Animal | undefined> {
+  async getEntryByTopic(species: string): Promise<Animal | undefined> {
+    console.log('ok im in the service method');
     let data = await fetch(this.apiUrl + '/' + species);
     return (await data.json()) ?? {};
   }

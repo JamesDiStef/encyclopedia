@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AddMammalService } from './add-mammal.service';
+import { AddMammalService } from './add-entry.service';
 
 describe('AddMammalService', () => {
   let service: AddMammalService;
