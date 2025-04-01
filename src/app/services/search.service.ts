@@ -1,9 +1,8 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
-export interface Animal {
-  species: string;
+export interface Entry {
+  topic: string;
   description: string;
   wiki: string;
 }
@@ -18,12 +17,12 @@ export class SearchService {
 
   constructor(private http: HttpClient) {}
 
-  async getAllEntries(): Promise<Animal> {
+  async getAllEntries(): Promise<Entry> {
     let data = await fetch(this.apiUrl);
     return (await data.json()) ?? [];
   }
 
-  async getEntryByTopic(species: string): Promise<Animal | undefined> {
+  async getEntryByTopic(species: string): Promise<any | undefined> {
     console.log('ok im in the service method');
     let data = await fetch(this.apiUrl + '/' + species);
     return (await data.json()) ?? {};

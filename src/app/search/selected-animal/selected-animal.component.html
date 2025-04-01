@@ -3,7 +3,7 @@
 >
   <div class="card-body w-full">
     <div class="flex justify-between">
-      <h2 class="card-title">{{ animal?.species }}</h2>
+      <h2 class="card-title">{{ animal?.topic }}</h2>
       <button class="text-xl" (click)="toggleDescription()">
         <fa-icon [icon]="faEdit"></fa-icon>
       </button>
@@ -12,9 +12,9 @@
     @if(!isEditing){
     <p>{{ animal?.description }}</p>
     } @if(isEditing){
-    <form class="grow" [formGroup]="updateAnimalForm">
+    <form class="grow" [formGroup]="updateEntryForm">
       <textarea
-        id="species"
+        id="topic"
         class="w-full h-36 grow bg-white"
         placeholder="Enter a new description"
         formControlName="newDescription"

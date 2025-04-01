@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { SelectedAnimalComponent } from './selected-animal/selected-animal.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Animal, SearchService } from '../services/search.service';
+import { SearchService } from '../services/search.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -17,7 +17,7 @@ export class SearchComponent {
   });
 
   query: string = 'abb';
-  result!: Animal | undefined;
+  result!: any | undefined;
 
   url = 'http://localhost:3000/animals';
 
@@ -30,6 +30,7 @@ export class SearchComponent {
     let entry = await this.searchService.getEntryByTopic(
       '' + this.applyForm.get('topic')?.value
     );
+    console.log(entry);
     if (entry?.species) {
       this.result = entry;
       this.entryNotFound = false;
