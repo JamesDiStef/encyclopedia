@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { SelectedAnimalComponent } from './selected-animal/selected-animal.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SearchService } from '../services/search.service';
 import { HttpClient } from '@angular/common/http';
+import { SelectedEntryComponent } from './selected-entry/selected-entry.component';
 
 @Component({
   selector: 'app-search',
-  imports: [SelectedAnimalComponent, ReactiveFormsModule],
+  imports: [SelectedEntryComponent, ReactiveFormsModule],
   templateUrl: './search.component.html',
   providers: [HttpClient],
 })
@@ -18,8 +18,6 @@ export class SearchComponent {
 
   query: string = 'abb';
   result!: any | undefined;
-
-  url = 'http://localhost:3000/animals';
 
   searchService: SearchService = inject(SearchService);
   entryNotFound: boolean = false;

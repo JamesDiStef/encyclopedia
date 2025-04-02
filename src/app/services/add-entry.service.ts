@@ -6,9 +6,9 @@ import { stringify } from 'querystring';
   providedIn: 'root',
 })
 export class AddEntryService {
-  private apiUrl = 'http://localhost:8080/api/v1/entries/';
-  // private apiUrl =
-  //   'https://animals-service-96f362179112.herokuapp.com/api/v1/entries/';
+  // private apiUrl = 'http://localhost:8080/api/v1/entries/';
+  private apiUrl =
+    'https://animals-service-96f362179112.herokuapp.com/api/v1/entries/';
 
   constructor(private http: HttpClient) {}
 

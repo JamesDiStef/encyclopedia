@@ -6,11 +6,11 @@ import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { AddEntryService } from '../../services/add-entry.service';
 
 @Component({
-  selector: 'selected-animal',
+  selector: 'selected-entry',
   imports: [FontAwesomeModule, ReactiveFormsModule],
-  templateUrl: './selected-animal.component.html',
+  templateUrl: './selected-entry.component.html',
 })
-export class SelectedAnimalComponent {
+export class SelectedEntryComponent {
   faEdit = faEdit;
   @Input() entry!: Entry | undefined;
   isEditing = false;
