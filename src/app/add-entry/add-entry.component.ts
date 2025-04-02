@@ -13,7 +13,7 @@ import { AddEntryService } from '../services/add-entry.service';
   imports: [ReactiveFormsModule],
   templateUrl: './add-entry.component.html',
 })
-export class AddMammalComponent {
+export class AddEntryComponent {
   entryForm = new FormGroup({
     topic: new FormControl(''),
     description: new FormControl(''),

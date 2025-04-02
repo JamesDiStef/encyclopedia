@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { SearchComponent } from './search/search.component';
-import { AddMammalComponent } from './add-entry/add-entry.component';
+import { AddEntryComponent } from './add-entry/add-entry.component';
 import { AboutThisPageComponent } from './about-this-page/about-this-page.component';
 import { AboutTheAuthorComponent } from './about-the-author/about-the-author.component';
 
@@ -12,8 +12,8 @@ export const routes: Routes = [
   },
   {
     path: 'add',
-    component: AddMammalComponent,
-    title: 'Add Mammal Page',
+    component: AddEntryComponent,
+    title: 'Add Entry Page',
   },
   {
     path: 'about',
