@@ -30,13 +30,13 @@
           <input
             formControlName="description"
             type="text"
-            placeholder="It better be a mammal!"
+            placeholder="Give it your best shot!"
             class="input input-bordered"
             required
           />
           @if(entryForm.get('description')?.touched &&
           entryForm.get('description')?.invalid){
-          <div class="text-red-500">Fun fact is required</div>
+          <div class="text-red-500">Some sort of description is required</div>
 
           }
         </div>
