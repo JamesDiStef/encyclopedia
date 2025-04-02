@@ -31,7 +31,7 @@ export class SearchComponent {
       '' + this.applyForm.get('topic')?.value
     );
     console.log(entry);
-    if (entry?.species) {
+    if (entry?.topic) {
       this.result = entry;
       this.entryNotFound = false;
     } else this.entryNotFound = true;

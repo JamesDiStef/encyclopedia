@@ -13,7 +13,7 @@ export interface Entry {
 export class SearchService {
   // private apiUrl = 'http://localhost:8080/api/v1/mammals/';
   private apiUrl =
-    'https://animals-service-96f362179112.herokuapp.com/api/v1/mammals';
+    'https://animals-service-96f362179112.herokuapp.com/api/v1/entries';
 
   constructor(private http: HttpClient) {}
 
@@ -22,9 +22,9 @@ export class SearchService {
     return (await data.json()) ?? [];
   }
 
-  async getEntryByTopic(species: string): Promise<any | undefined> {
+  async getEntryByTopic(topic: string): Promise<any | undefined> {
     console.log('ok im in the service method');
-    let data = await fetch(this.apiUrl + '/' + species);
+    let data = await fetch(this.apiUrl + '/' + topic);
     return (await data.json()) ?? {};
   }
 }

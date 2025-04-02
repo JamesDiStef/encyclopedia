@@ -31,18 +31,12 @@
 } @if(entryNotFound) {
 <div class="place-self-center">
   <div class="card bg-base-100 m-20 w-4/5 h-2/5 shadow-xl">
-    <figure>
-      <img
-        src="../../assets/mammal-not-found.jpg"
-        alt="Couldn't find the mammal"
-      />
-    </figure>
     <div class="card-body">
       <h2 class="card-title justify-center">
         Entry not found - would you like to add it?
       </h2>
       <div class="card-actions justify-center">
-        <a href="/add" target="_blank" class="btn btn-primary">Add new entry</a>
+        <a href="/add" class="btn btn-primary">Add new entry</a>
       </div>
     </div>
   </div>
@@ -50,6 +44,6 @@
 
 } @if(isSelected && !entryNotFound) {
 <div class="place-self-center">
-  <selected-animal [animal]="result" />
+  <selected-animal [entry]="result" />
 </div>
 }

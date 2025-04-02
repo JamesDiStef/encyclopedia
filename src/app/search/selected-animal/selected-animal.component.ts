@@ -12,7 +12,7 @@ import { AddEntryService } from '../../services/add-entry.service';
 })
 export class SelectedAnimalComponent {
   faEdit = faEdit;
-  @Input() animal!: Entry | undefined;
+  @Input() entry!: Entry | undefined;
   isEditing = false;
 
   addMammalService: AddEntryService = inject(AddEntryService);
@@ -23,20 +23,21 @@ export class SelectedAnimalComponent {
   });
 
   ngOnInit() {
-    console.log(this.animal);
+    console.log(this.entry);
   }
 
   async toggleDescription() {
     this.isEditing = !this.isEditing;
     if (!this.isEditing) this.updateDescription();
-    this.animal!.description =
+    this.entry!.description =
       '' + this.updateEntryForm.get('newDescription')?.value;
   }
 
   async updateDescription() {
     console.log(this.updateEntryForm.get('newDescription')?.value);
+    console.log(this.entry);
     await this.addMammalService.updateEntryDescription(
-      '' + this.animal?.topic,
+      '' + this.entry?.topic,
       '' + this.updateEntryForm.get('newDescription')?.value
     );
   }

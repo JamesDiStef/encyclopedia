@@ -3,14 +3,14 @@
 >
   <div class="card-body w-full">
     <div class="flex justify-between">
-      <h2 class="card-title">{{ animal?.topic }}</h2>
+      <h2 class="card-title">{{ entry?.topic }}</h2>
       <button class="text-xl" (click)="toggleDescription()">
         <fa-icon [icon]="faEdit"></fa-icon>
       </button>
     </div>
 
     @if(!isEditing){
-    <p>{{ animal?.description }}</p>
+    <p>{{ entry?.description }}</p>
     } @if(isEditing){
     <form class="grow" [formGroup]="updateEntryForm">
       <textarea
@@ -21,10 +21,10 @@
         rows="6"
       ></textarea>
     </form>
-    } @if(animal){
+    } @if(entry){
     <div class="justify-center mx-auto">
       <a
-        href="{{ animal.wiki }}"
+        href="{{ entry.wiki }}"
         target="_blank"
         class="btn btn-primary justify-center rounded-md text-white font-semibold"
         >Read More</a
