@@ -27,13 +27,13 @@
           <label class="label">
             <span class="label-text">Description</span>
           </label>
-          <input
+          <textarea
+            id="topic"
+            class="input input-bordered w-full h-60 p-2"
+            placeholder="Enter a new description"
             formControlName="description"
-            type="text"
-            placeholder="Give it your best shot!"
-            class="input input-bordered"
-            required
-          />
+            rows="6"
+          ></textarea>
           @if(entryForm.get('description')?.touched &&
           entryForm.get('description')?.invalid){
           <div class="text-red-500">Some sort of description is required</div>
